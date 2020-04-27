@@ -32,13 +32,9 @@ spec:
           ports:
             - containerPort: 9000
           volumeMounts:
-            - mountPath: /app/kube/
+            - mountPath: /app/kube/kubeconfig
               name: kube-config-volume
-          env:
-            - name: KUBE_CONFIG_LOCATION
-              value: /app/kube/kubeconfig
       volumes:
         - name: kube-config-volume
           hostPath:
-            # directory where kubeconfig is located on host
-            path: /var/lib/cratekube/
+            path: /var/lib/cratekube/kubeconfig
